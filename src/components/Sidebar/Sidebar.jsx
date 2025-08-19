@@ -5,6 +5,7 @@ import { IoBag } from 'react-icons/io5'
 import { MdClose, MdDashboard } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 
+// sidebar navigation items
 const sideBarItems =[
   {name: 'Dashboard',
     icon: <MdDashboard/>,
@@ -32,7 +33,9 @@ const sideBarItems =[
 const Sidebar = ({toggleSidebar}) => {
   const [isActive, setIsActive] = useState(0)
   return (
-    <div className='max-w-5xl bg-primary border-r border-primary2 text-white h-screen p-5 w-44 transition-all'>
+       // sidebar container
+    <div className='bg-primary border-r border-primary2 text-white h-screen p-5 w-44 md:w-60 transition-all'>
+       {/* navigation list */}
         <ul className='space-y-3 text-white mt-5 md:mt-0'>
             {sideBarItems.map((item, index)=>
             (
@@ -43,6 +46,7 @@ const Sidebar = ({toggleSidebar}) => {
      
             ))}
         </ul>
+         {/* close button for small screens */}
         <button onClick={toggleSidebar} className='md:hidden absolute top-0 right-0 cursor-pointer text-2xl px-2'>
               <MdClose/>
         </button>
